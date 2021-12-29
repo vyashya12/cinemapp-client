@@ -13,7 +13,7 @@ function Seats({movieId}) {
     let navigate = useNavigate()
 
     let getSeats = useCallback(() => {
-        fetch(`http://${process.env.REACT_APP_API_URL}/seats/${movieId}`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/seats/${movieId}`, {
             method: "GET"
         })
         .then(res => res.json())
@@ -21,7 +21,7 @@ function Seats({movieId}) {
             setSeats(data[0])
         })
     }, [movieId])
-    
+
     useEffect( () => {
         getSeats()
     }, [getSeats])
@@ -49,7 +49,7 @@ function Seats({movieId}) {
     }
 
     let seatHandler = () => {
-        fetch(`http://${process.env.REACT_APP_API_URL}/booking/${user.sub}`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/booking/${user.sub}`, {
             method: "PUT",
             headers: {
                 "x-auth-token": localStorage.getItem('token'),

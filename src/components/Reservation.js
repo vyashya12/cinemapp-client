@@ -14,7 +14,7 @@ function Reservation() {
     }
 
     let getReserve = () => {
-        fetch(`http://${process.env.REACT_APP_API_URL}/booking`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/booking`, {
             method: "GET",
         })
         .then(res => res.json())
@@ -51,7 +51,7 @@ function Reservation() {
             total: reserved[0].total,
             seats: reserved[0].seats
         })
-        fetch(`http://${process.env.REACT_APP_API_URL}/receipt/`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/receipt/`, {
             method: "POST",
             headers: {
                 "x-auth-token": localStorage.getItem('token'),

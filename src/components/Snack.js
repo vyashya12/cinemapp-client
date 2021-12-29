@@ -32,7 +32,7 @@ function Snack({data, getFood}) {
 
 
     let deleteHandler = (id, handleClose) => {
-        fetch(`http://${process.env.REACT_APP_API_URL}/snacks/`+id, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/snacks/`+id, {
             method: "DELETE",
             headers: {
                 "x-auth-token": localStorage.getItem('token')
@@ -63,7 +63,7 @@ function Snack({data, getFood}) {
         formData.set('description', edit.description)
         formData.set('price', edit.price)
         formData.set('isSoldOut', edit.isSoldOut)
-        fetch(`http://${process.env.REACT_APP_API_URL}/snacks/${edit.id}`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/snacks/${edit.id}`, {
             method: "PUT",
             headers: {
                 "x-auth-token": localStorage.getItem('token')
@@ -94,7 +94,7 @@ function Snack({data, getFood}) {
 
     let bookHandler = (e) => {
         e.preventDefault()
-        fetch(`http://${process.env.REACT_APP_API_URL}/booking/${user.sub}`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/booking/${user.sub}`, {
             method: "POST",
             headers: {
                 "x-auth-token": localStorage.getItem('token'),
@@ -114,7 +114,7 @@ function Snack({data, getFood}) {
     return(
                 <Col>
                     <Card style={styles}>
-                        <Image style={imageStyle} src={`http://${process.env.REACT_APP_API_URL}/${data.image.split('/')[2]}`} alt={data.name} />
+                        <Image style={imageStyle} src={`https://${process.env.REACT_APP_API_URL}/${data.image.split('/')[2]}`} alt={data.name} />
                         <Card.Content>
                             <Card.Header>{data.name}</Card.Header>
                             <Card.Description>

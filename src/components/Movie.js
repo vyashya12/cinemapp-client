@@ -45,7 +45,7 @@ function Movie({data, getMovies}) {
     }
 
     let getCinema = () => {
-        fetch(`http://${process.env.REACT_APP_API_URL}/cinema`)
+        fetch(`https://${process.env.REACT_APP_API_URL}/cinema`)
         .then(res => res.json())
         .then(data => {
             setCinema(data)
@@ -63,7 +63,7 @@ function Movie({data, getMovies}) {
     })
 
     let deleteHandler = (id, handleClose) => {
-        fetch(`http://${process.env.REACT_APP_API_URL}/movies/${id}`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/movies/${id}`, {
             method: "DELETE",
             headers: {
                 "x-auth-token": localStorage.getItem('token')
@@ -97,7 +97,7 @@ function Movie({data, getMovies}) {
         formData.set('endDate', edit.endDate)
         formData.set('genre', edit.genre)
         formData.set('trailer', edit.trailer)
-        fetch(`http://${process.env.REACT_APP_API_URL}/movies/${edit.id}`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/movies/${edit.id}`, {
             method: "PUT",
             headers: {
                 "x-auth-token": localStorage.getItem('token')
@@ -121,7 +121,7 @@ function Movie({data, getMovies}) {
 
     let bookMovieHandler = (e,closeBook) => {
         e.preventDefault()
-        fetch(`http://${process.env.REACT_APP_API_URL}/booking`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/booking`, {
             method: "POST",
             headers: {
                 "x-auth-token": localStorage.getItem('token'),
@@ -139,7 +139,7 @@ function Movie({data, getMovies}) {
     return(
         <Row style={rowStyle}>
             <Col>
-                <Image style={{height: "200px", width: "400px"}} fluid src={`http://${process.env.REACT_APP_API_URL}/${data.image.split('/')[2]}`} alt={data.title} />
+                <Image style={{height: "200px", width: "400px"}} fluid src={`https://${process.env.REACT_APP_API_URL}/${data.image.split('/')[2]}`} alt={data.title} />
             </Col>
             <Col>
                 <h3>{data.title}</h3>

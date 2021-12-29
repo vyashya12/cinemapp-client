@@ -21,7 +21,7 @@ function AddMovie({getMovies}) {
         formData.append('endDate', addMovie.endDate)
         formData.append('genre', addMovie.genre)
         formData.append('trailer', addMovie.trailer)
-        fetch(`http://${process.env.REACT_APP_API_URL}/movies/`, {
+        fetch(`https://${process.env.REACT_APP_API_URL}/movies/`, {
             method: "POST",
             headers: {
                 "x-auth-token": localStorage.getItem('token')
