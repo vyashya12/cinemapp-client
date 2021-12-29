@@ -24,7 +24,7 @@ function AddFood({getFood}) {
         formData.append('description', snack.description)
         formData.append('price', snack.price)
         formData.append('isSoldOut', snack.isSoldOut)
-        fetch(`https://${process.env.REACT_APP_API_URL}/snacks`, {
+        fetch(`${process.env.REACT_APP_API_URL}snacks`, {
             method: "POST",
             headers: {
                 "x-auth-token": localStorage.getItem('token')

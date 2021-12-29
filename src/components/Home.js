@@ -15,7 +15,7 @@ function Home() {
     }
 
     let getMovies = () => {
-        fetch(`https://${process.env.REACT_APP_API_URL}/movies`, {
+        fetch(`${process.env.REACT_APP_API_URL}movies`, {
             method: "GET"
         })
         .then(res => res.json())

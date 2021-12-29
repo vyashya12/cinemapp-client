@@ -8,8 +8,6 @@ function AddMovie({getMovies}) {
     let onChangeHandler = (e) => {
         setAddMovie({...addMovie, [e.target.name]: e.target.value})
     }
-    // https://youtu.be/P1GRO31ve5Q
-
     let onSubmitHandler = (e) => {
         e.preventDefault()
         const formData = new FormData()
@@ -21,7 +19,7 @@ function AddMovie({getMovies}) {
         formData.append('endDate', addMovie.endDate)
         formData.append('genre', addMovie.genre)
         formData.append('trailer', addMovie.trailer)
-        fetch(`https://${process.env.REACT_APP_API_URL}/movies/`, {
+        fetch(`${process.env.REACT_APP_API_URL}movies/`, {
             method: "POST",
             headers: {
                 "x-auth-token": localStorage.getItem('token')

@@ -36,7 +36,7 @@ function Navbar() {
       setUser(decoded)
       localStorage.setItem('userData', JSON.stringify(userData))
 
-      const {data} = await axios.post(`https://${process.env.REACT_APP_API_URL}/login`, {credential:res.credential})
+      const {data} = await axios.post(`${process.env.REACT_APP_API_URL}login`, {credential:res.credential})
       setUser(data.payload)
       localStorage.setItem('token', data.token)
       window.location.reload()

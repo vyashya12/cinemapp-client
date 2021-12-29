@@ -23,7 +23,7 @@ function App() {
   }
 
   let getBooking = () => {
-    fetch(`https://${process.env.REACT_APP_API_URL}/booking/`, {
+    fetch(`${process.env.REACT_APP_API_URL}booking/`, {
         method: "GET",
         params: {
             id: userId

@@ -24,7 +24,7 @@ function Cinema() {
     }
 
     let getLocation = () => {
-        fetch(`https://${process.env.REACT_APP_API_URL}/cinema`, {
+        fetch(`${process.env.REACT_APP_API_URL}cinema`, {
             method: "GET"
         })
         .then(res => res.json())
@@ -66,7 +66,7 @@ function Cinema() {
 
     let onSubmitHandler = (e) => {
         e.preventDefault()
-        fetch(`https://${process.env.REACT_APP_API_URL}/cinema/`, {
+        fetch(`${process.env.REACT_APP_API_URL}cinema/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

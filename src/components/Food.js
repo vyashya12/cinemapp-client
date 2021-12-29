@@ -15,7 +15,7 @@ function Food() {
     }
    
     let getFood = () => {
-        fetch(`https://${process.env.REACT_APP_API_URL}/snacks`, {
+        fetch(`${process.env.REACT_APP_API_URL}snacks`, {
             method: "GET"
         })
         .then(res => res.json())
