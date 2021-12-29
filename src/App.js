@@ -31,7 +31,8 @@ function App() {
     })
     .then(res => res.json())
     .then(data => {
-        setMovieId(data[0].movieId)
+        // setMovieId(data[0]?.movieId)
+        console.log(data)
     })
 }
 
