@@ -31,7 +31,7 @@ function App() {
     })
     .then(res => res.json())
     .then(data => {
-      if(data[0].movieId) {
+      if(data.length) {
         setMovieId(data[0].movieId)
       } else {
         return null
