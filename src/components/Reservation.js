@@ -5,6 +5,7 @@ import Swal from 'sweetalert2'
 function Reservation() {
     const [reserved, setReserved] = useState([])
     const [receipt, setReceipt] = useState({})
+    const [id, setId] = useState()
 
     let buttonStyle = {
         display: "block",
@@ -43,6 +44,18 @@ function Reservation() {
         // })
     // }
 
+    let deleteHandler = () => {
+        fetch(`${process.env.REACT_APP_API_URL}booking/${id}`, {
+            method: "DELETE",
+            headers: {
+                "x-auth-token": localStorage.getItem('token'),
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            Swal.fire(data.msg)
+        })
+    }
 
     let payHandler = () => {
         setReceipt({
@@ -68,6 +81,7 @@ function Reservation() {
 
 
     let showReserve = reserved?.map(reservation => {
+        setId(reservation._id)
         reservation.d = reservation.date.split("T")
         reservation.date = reservation.d[0]
         return(
@@ -112,11 +126,18 @@ function Reservation() {
                 : null
             }
             {/* {qrCoder} */}
-            {
-                user ?
-                <Button style={buttonStyle} onClick={payHandler}  color="orange">Pay</Button>
-                : null
-            }
+            <div  style={buttonStyle}>
+                {
+                    user.isAdmin ?
+                    <Button onClick={(e) => deleteHandler(e,id)} color='red'>Delete</Button>
+                    : null
+                }
+                {
+                    user ?
+                    <Button onClick={payHandler}  color="orange">Pay</Button>
+                    : null
+                }
+            </div>
         </div>
     )
 }
