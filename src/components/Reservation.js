@@ -19,11 +19,7 @@ function Reservation() {
             method: "GET",
         })
         .then(res => res.json())
-        .then(data => {
-            if(data.length) {
-                setReserved(data)
-            }
-        })
+        .then(data => setReserved(data))
     }
 
     useEffect( () => {
