@@ -20,7 +20,9 @@ function Reservation() {
         })
         .then(res => res.json())
         .then(data => {
-            setReserved(data)
+            if(data.length) {
+                setReserved(data)
+            }
         })
     }
 
@@ -77,7 +79,7 @@ function Reservation() {
             Swal.fire(data.msg)
         })
     }
-    console.log(receipt)
+    // console.log(receipt)
 
 
     let showReserve = reserved?.map(reservation => {
