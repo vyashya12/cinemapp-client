@@ -46,19 +46,6 @@ function Reservation() {
         // })
     // }
 
-    let deleteHandler = () => {
-        fetch(`${process.env.REACT_APP_API_URL}booking/${id}`, {
-            method: "DELETE",
-            headers: {
-                "x-auth-token": localStorage.getItem('token'),
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            Swal.fire(data.msg)
-        })
-    }
-
     let payHandler = () => {
         setReceipt({
             userId: user.sub,
@@ -129,11 +116,6 @@ function Reservation() {
             }
             {/* {qrCoder} */}
             <div  style={buttonStyle}>
-                {
-                    user.isAdmin ?
-                    <Button onClick={(e) => deleteHandler(e,id)} color='red'>Delete</Button>
-                    : null
-                }
                 {
                     user ?
                     <Button onClick={payHandler}  color="orange">Pay</Button>
