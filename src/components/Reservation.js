@@ -23,7 +23,6 @@ function Reservation() {
           console.log(data)
         if (data) {
           setReserved(data)
-
         }
       })
   }
@@ -71,7 +70,6 @@ function Reservation() {
   // console.log(receipt)
 
   let showReserve = reserved?.map((reservation) => {
-    setId(reservation._id)
     reservation.d = reservation.date.split("T")
     reservation.date = reservation.d[0]
     return (
